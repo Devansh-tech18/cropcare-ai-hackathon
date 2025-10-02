@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropCare AI - Disease Detection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <h1>CropCare AI</h1>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#home" class="nav-item active">Home</a>
+                    <a href="#history" class="nav-item">History</a>
+                    <a href="#tips" class="nav-item">Tips</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Screen -->
+            <div id="home-screen" class="screen active">
+                <div class="hero-section">
+                    <h2>Detect Crop Diseases Instantly</h2>
+                    <p>Take a photo of your crop and get AI-powered disease diagnosis with treatment recommendations</p>
+                </div>
+
+                <div class="upload-section">
+                    <div class="upload-card">
+                        <div class="upload-area" id="uploadArea">
+                            <i class="fas fa-camera-retro upload-icon"></i>
+                            <h3>Upload or Capture Image</h3>
+                            <p>Click to take a photo or upload from gallery</p>
+                            <input type="file" id="imageInput" accept="image/*" capture="environment" hidden>
+                        </div>
+                        
+                        <div class="upload-buttons">
+                            <button class="btn btn-primary" onclick="openCamera()">
+                                <i class="fas fa-camera"></i>
+                                Take Photo
+                            </button>
+                            <button class="btn btn-secondary" onclick="openGallery()">
+                                <i class="fas fa-images"></i>
+                                Upload Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-section">
+                    <h3>Why Choose CropCare AI?</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Instant Results</h4>
+                            <p>Get disease diagnosis in seconds</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-brain"></i>
+                            <h4>AI Powered</h4>
+                            <p>Advanced machine learning algorithms</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-prescription-bottle-alt"></i>
+                            <h4>Treatment Guide</h4>
+                            <p>Get specific medicine recommendations</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Mobile Friendly</h4>
+                            <p>Works on all devices, anywhere</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="screen">
+                <div class="results-header">
+                    <button class="btn btn-back" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        Back
+                    </button>
+                    <h2>Diagnosis Results</h2>
+                </div>
+
+                <div class="results-content">
+                    <div class="image-preview">
+                        <img id="previewImage" src="" alt="Uploaded crop image">
+                    </div>
+
+                    <div class="diagnosis-card">
+                        <div class="disease-info">
+                            <div class="disease-header">
+                                <h3 id="diseaseName">Leaf Blight Disease</h3>
+                                <div class="confidence-badge" id="confidence">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>94% Confident</span>
+                                </div>
+                            </div>
+                            <p id="diseaseDescription">
+                                Leaf blight is a fungal disease that causes brown spots and yellowing of leaves, 
+                                commonly affecting crops during humid conditions.
+                            </p>
+                        </div>
+
+                        <div class="severity-indicator">
+                            <h4>Severity Level</h4>
+                            <div class="severity-bar">
+                                <div class="severity-fill moderate" id="severityFill"></div>
+                            </div>
+                            <span id="severityText">Moderate</span>
+                        </div>
+                    </div>
+
+                    <div class="treatment-card">
+                        <h3><i class="fas fa-prescription-bottle-alt"></i> Recommended Treatment</h3>
+                        
+                        <div class="treatment-section">
+                            <h4>Immediate Action</h4>
+                            <ul id="immediateActions">
+                                <li>Remove affected leaves immediately</li>
+                                <li>Improve air circulation around plants</li>
+                                <li>Avoid overhead watering</li>
+                            </ul>
+                        </div>
+
+                        <div class="treatment-section">
+                            <h4>Recommended Medicines</h4>
+                            <div class="medicine-list" id="medicineList">
+                                <div class="medicine-item">
+                                    <div class="medicine-info">
+                                        <strong>Copper Sulfate Fungicide</strong>
+                                        <p>Apply 2-3 grams per liter of water</p>
+                                    </div>
+                                    <div class="medicine-dosage">
+                                        <span>Every 7 days</span>
+                                    </div>
+                                </div>
+                                <div class="medicine-item">
+                                    <div class="medicine-info">
+                                        <strong>Mancozeb 75% WP</strong>
+                                        <p>Apply 2.5 grams per liter of water</p>
+                                    </div>
+                                    <div class="medicine-dosage">
+                                        <span>Every 10 days</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="treatment-section">
+                            <h4>Prevention Tips</h4>
+                            <ul id="preventionTips">
+                                <li>Maintain proper spacing between plants</li>
+                                <li>Water at the base of plants, not on leaves</li>
+                                <li>Apply organic compost to boost plant immunity</li>
+                                <li>Monitor crops regularly for early detection</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="saveResults()">
+                            <i class="fas fa-save"></i>
+                            Save Results
+                        </button>
+                        <button class="btn btn-secondary" onclick="shareResults()">
+                            <i class="fas fa-share"></i>
+                            Share with Expert
+                        </button>
+                        <button class="btn btn-success" onclick="scanAnother()">
+                            <i class="fas fa-camera"></i>
+                            Scan Another Crop
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Screen -->
+            <div id="loading-screen" class="screen">
+                <div class="loading-content">
+                    <div class="loading-spinner">
+                        <i class="fas fa-leaf rotating"></i>
+                    </div>
+                    <h3>Analyzing Your Crop...</h3>
+                    <p>Our AI is examining the image for disease detection</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span id="loadingText">Processing image...</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 CropCare AI. Helping farmers grow better crops.</p>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#privacy">Privacy</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
