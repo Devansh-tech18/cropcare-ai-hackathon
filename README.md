@@ -141,9 +141,11 @@ CropCare AI is designed to address the critical need for early disease detection
 
 ## 📞 Contact & Next Steps
 
-**Team**: [Your Name/Team Name]
-**Email**: [Your Email]
-**GitHub**: [Your GitHub Profile]
+**Team**: Syntax Squad
+
+**Email**: devanshsingh27624@gmail.com
+
+**GitHub**: Devansh-tech-18
 
 ### Immediate Next Steps:
 1. **ML Model Development** - Train CNN on crop disease dataset
@@ -155,3 +157,4 @@ CropCare AI is designed to address the critical need for early disease detection
 ---
 
 **Built for Farmers. Powered by AI. Designed for Impact.** 🚜🤖🌾
+
